@@ -28,6 +28,11 @@ const saveTodo = (text, done = 0, save = 1) => {
   editBtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
   todo.appendChild(editBtn);
 
+  const doingBtn = document.createElement("button");
+  doingBtn.classList.add("doing-todo");
+  doingBtn.innerHTML = '<i class="fas fa-bookmark"></i>';
+  todo.appendChild(doingBtn);
+
   const deleteBtn = document.createElement("button");
   deleteBtn.classList.add("remove-todo");
   deleteBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
@@ -100,9 +105,27 @@ const filterTodos = (filterValue) => {
 
       break;
 
+    case "doing":
+        todos.forEach((todo) =>
+        todo.classList.contains("doing")
+          ? (todo.style.display = "flex")
+          : (todo.style.display = "none")
+      );
+
+      break;
+
+    case "mustDo":
+        todos.forEach((todo) =>
+        !todo.classList.contains("doing") && !todo.classList.contains("done")
+          ? (todo.style.display = "flex")
+          : (todo.style.display = "none")
+      );
+
+      break;
+
     case "todo":
       todos.forEach((todo) =>
-        !todo.classList.contains("done")
+        todo.classList.contains("todo")
           ? (todo.style.display = "flex")
           : (todo.style.display = "none")
       );
@@ -143,6 +166,18 @@ document.addEventListener("click", (e) => {
     parentEl.remove();
 
     removeTodoLocalStorage(todoTitle);
+  }
+
+  if (targetEl.classList.contains("doing-todo")) {
+    parentEl.classList.toggle("doing");
+
+    updateTodoStatusLocalStorage(todoTitle);
+  }
+
+  if (targetEl.classList.contains("mustDo")) {
+    parentEl.classList.toggle("mustDo");
+
+    updateTodoStatusLocalStorage(todoTitle);
   }
 
   if (targetEl.classList.contains("edit-todo")) {
