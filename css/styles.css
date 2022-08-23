@@ -164,10 +164,6 @@ select {
   background-color: rgb(170, 255, 255);
 }
 
-.to-do {
-  background-color: red;
-}
-
 .done h3 {
   color: #fff;
   text-decoration: line-through;
