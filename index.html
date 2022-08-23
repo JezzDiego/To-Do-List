@@ -22,40 +22,40 @@
       </header>
 
       <div id="form-header-section">
-      <form id="todo-form">
-        <p>Adicione sua tarefa</p>
-        <div class="form-control">
-          <input
-            type="text"
-            id="todo-input"
-            placeholder="Do que você precisa se lembrar?"
-          />
-          <button type="submit">
-            <i class="fa-thin fa-plus"></i>
-          </button>
-        </div>
-      </form>
-      <div id="toolbar">
-        <div id="search">
-          <h4>Pesquisar:</h4>
-          <form>
-            <input type="text" id="search-input" placeholder="Buscar..." />
-            <button id="erase-button">
-              <i class="fa-solid fa-delete-left"></i>
+        <form id="todo-form">
+          <p>Adicione sua tarefa</p>
+          <div class="form-control">
+            <input
+              type="text"
+              id="todo-input"
+              placeholder="Do que você quer lembrar?"
+            />
+            <button type="submit">
+              <i class="fa-thin fa-plus"></i>
             </button>
-          </form>
-        </div>
-        <div id="filter">
-          <h4>Filtrar:</h4>
-          <select id="filter-select">
-            <option value="all">Todos</option>
-            <option value="done">Concluídos</option>
-            <option value="doing">Fazendo</option>
-            <option value="mustDo">A fazer</option>
-          </select>
+          </div>
+        </form>
+        <div id="toolbar">
+          <div id="search">
+            <h4>Pesquisar:</h4>
+            <form>
+              <input type="text" id="search-input" placeholder="Buscar..." />
+              <button id="erase-button">
+                <i class="fa-solid fa-delete-left"></i>
+              </button>
+            </form>
+          </div>
+          <div id="filter">
+            <h4>Filtrar:</h4>
+            <select id="filter-select">
+              <option value="all">Todos</option>
+              <option value="done">Concluídos</option>
+              <option value="doing">Fazendo</option>
+              <option value="mustDo">A fazer</option>
+            </select>
+          </div>
         </div>
       </div>
-    </div>
       <form id="edit-form" class="hide">
         <p>Edite sua tarefa</p>
         <div class="form-control">
@@ -66,8 +66,7 @@
         </div>
         <button id="cancel-edit-btn">Cancelar</button>
       </form>
-      <div id="todo-list">
-      </div>
+      <div id="todo-list"></div>
     </div>
   </body>
 </html>
