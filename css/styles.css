@@ -23,6 +23,7 @@ button {
   justify-content: center;
   align-items: center;
   transition: 0.4s;
+  border-radius: 7px;
 }
 
 button:hover {
@@ -38,6 +39,7 @@ button i {
 input,
 select {
   padding: 0.25rem 0.5rem;
+  border-radius: 7px;
 }
 
 .hide {
