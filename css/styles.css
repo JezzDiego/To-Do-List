@@ -5,11 +5,11 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  color: #333;
+  color: #a7c5bd;
 }
 
 body {
-  background-color: #333;
+  background-color: #524656;
 }
 
 button {
@@ -27,12 +27,12 @@ button {
 }
 
 button:hover {
-  background-color: rgb(170, 255, 255);
+  background-color: #a7c5bd;
 }
 
 button i {
   pointer-events: none;
-  color: #102f5e;
+  color: black;
   font-weight: bold;
 }
 
@@ -41,6 +41,11 @@ select {
   padding: 0.25rem 0.5rem;
   border-radius: 7px;
   border: 1px solid black;
+  color: black;
+}
+
+option {
+  color: black;
 }
 
 .hide {
@@ -146,8 +151,10 @@ select {
   justify-content: space-around;
   align-items: center;
   padding: 1rem 1rem;
-  border-bottom: 1px solid #ddd;
+  margin-top: 1rem;
+  border: 1px solid #ddd;
   transition: 0.3s;
+  border-radius: 10px;
 }
 
 .todo h3 {
@@ -164,7 +171,7 @@ select {
 }
 
 .doing {
-  background-color: rgb(170, 255, 255);
+  background-color: #6fa2c4;
 }
 
 .done h3 {
@@ -174,7 +181,7 @@ select {
 }
 
 .finish-todo:hover {
-  background-color: rgb(47, 255, 47);
+  background-color: #a1dbb2;
 }
 
 .finish-todo:hover > i {
@@ -182,7 +189,7 @@ select {
 }
 
 .edit-todo:hover {
-  background-color: yellow;
+  background-color: #fbea80;
 }
 
 .edit-todo:hover > i {
@@ -190,7 +197,7 @@ select {
 }
 
 .remove-todo:hover {
-  background-color: red;
+  background-color: #f84339;
 }
 
 .remove-todo:hover > i {

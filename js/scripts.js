@@ -5,6 +5,7 @@ const editForm = document.querySelector("#edit-form");
 const editInput = document.querySelector("#edit-input");
 const cancelEditBtn = document.querySelector("#cancel-edit-btn");
 const searchInput = document.querySelector("#search-input");
+const toolbar = document.querySelector("#toolbar");
 const eraseBtn = document.querySelector("#erase-button");
 const filterBtn = document.querySelector("#filter-select");
 
@@ -55,6 +56,10 @@ const toggleForms = () => {
   editForm.classList.toggle("hide");
   todoForm.classList.toggle("hide");
   todoList.classList.toggle("hide");
+
+  toolbar.style.display == "none"
+    ? (toolbar.style.display = "flex")
+    : (toolbar.style.display = "none");
 };
 
 const updateTodo = (text) => {
@@ -106,7 +111,7 @@ const filterTodos = (filterValue) => {
       break;
 
     case "doing":
-        todos.forEach((todo) =>
+      todos.forEach((todo) =>
         todo.classList.contains("doing")
           ? (todo.style.display = "flex")
           : (todo.style.display = "none")
@@ -115,7 +120,7 @@ const filterTodos = (filterValue) => {
       break;
 
     case "mustDo":
-        todos.forEach((todo) =>
+      todos.forEach((todo) =>
         !todo.classList.contains("doing") && !todo.classList.contains("done")
           ? (todo.style.display = "flex")
           : (todo.style.display = "none")
@@ -170,7 +175,6 @@ document.addEventListener("click", (e) => {
 
   if (targetEl.classList.contains("doing-todo")) {
     parentEl.classList.toggle("doing");
-
     updateTodoStatusLocalStorage(todoTitle);
   }
 
