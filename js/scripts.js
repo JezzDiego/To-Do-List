@@ -84,8 +84,6 @@ const getSearchedTodos = (search) => {
 
     todo.style.display = "flex";
 
-    console.log(todoTitle);
-
     if (!todoTitle.includes(search)) {
       todo.style.display = "none";
     }
