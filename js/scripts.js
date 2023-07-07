@@ -11,6 +11,7 @@ const filterBtn = document.querySelector("#filter-select");
 
 let oldInputValue;
 
+// criando os botões de ação dos todos
 const saveTodo = (text, done = 0, save = 1) => {
   const todo = document.createElement("div");
   todo.classList.add("todo");
@@ -52,6 +53,7 @@ const saveTodo = (text, done = 0, save = 1) => {
   todoInput.value = "";
 };
 
+//função para entrar ou sair da interface de edição
 const toggleForms = () => {
   editForm.classList.toggle("hide");
   todoForm.classList.toggle("hide");
@@ -62,6 +64,7 @@ const toggleForms = () => {
     : (toolbar.style.display = "none");
 };
 
+//função para alterar o nome do todo
 const updateTodo = (text) => {
   const todos = document.querySelectorAll(".todo");
 
@@ -76,6 +79,7 @@ const updateTodo = (text) => {
   });
 };
 
+//função para pesquisar todos
 const getSearchedTodos = (search) => {
   const todos = document.querySelectorAll(".todo");
 
@@ -90,6 +94,7 @@ const getSearchedTodos = (search) => {
   });
 };
 
+//função para filtrar todos
 const filterTodos = (filterValue) => {
   const todos = document.querySelectorAll(".todo");
 
@@ -140,6 +145,7 @@ const filterTodos = (filterValue) => {
   }
 };
 
+//função de ação do botão "+" (adicionar todo)
 todoForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -150,6 +156,7 @@ todoForm.addEventListener("submit", (e) => {
   }
 });
 
+//função de ação do botão de alterar estágio do todo
 document.addEventListener("click", (e) => {
   const targetEl = e.target;
   const parentEl = targetEl.closest("div");
@@ -190,6 +197,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
+//função para o botão de cancelar a edição
 cancelEditBtn.addEventListener("click", (e) => {
   e.preventDefault();
   toggleForms();
@@ -207,12 +215,14 @@ editForm.addEventListener("submit", (e) => {
   toggleForms();
 });
 
+//função para o input de busca
 searchInput.addEventListener("keyup", (e) => {
   const search = e.target.value;
 
   getSearchedTodos(search);
 });
 
+//função para o botão de limpar a busca
 eraseBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -221,18 +231,21 @@ eraseBtn.addEventListener("click", (e) => {
   searchInput.dispatchEvent(new Event("keyup"));
 });
 
+//função para o botão de filtrar os todos
 filterBtn.addEventListener("change", (e) => {
   const filterValue = e.target.value;
 
   filterTodos(filterValue);
 });
 
+//função para pegar todos os todos do localStorage
 const getTodosLocalStorage = () => {
   const todos = JSON.parse(localStorage.getItem("todos")) || [];
 
   return todos;
 };
 
+//carregando os todos na tela com o json do localStorage
 const loadTodos = () => {
   const todos = getTodosLocalStorage();
 
@@ -241,6 +254,7 @@ const loadTodos = () => {
   });
 };
 
+//salvar os todos no localStorage como json
 const saveTodoLocalStorage = (todo) => {
   const todos = getTodosLocalStorage();
 
@@ -249,6 +263,7 @@ const saveTodoLocalStorage = (todo) => {
   localStorage.setItem("todos", JSON.stringify(todos));
 };
 
+//remover os todos do localStorage
 const removeTodoLocalStorage = (todoText) => {
   const todos = getTodosLocalStorage();
 
@@ -257,6 +272,7 @@ const removeTodoLocalStorage = (todoText) => {
   localStorage.setItem("todos", JSON.stringify(filteredTodos));
 };
 
+//atualizar o status do todo no localStorage
 const updateTodoStatusLocalStorage = (todoText) => {
   const todos = getTodosLocalStorage();
 
@@ -267,6 +283,7 @@ const updateTodoStatusLocalStorage = (todoText) => {
   localStorage.setItem("todos", JSON.stringify(todos));
 };
 
+//atualizar o texto do todo no localStorage
 const updateTodoLocalStorage = (todoOldText, todoNewText) => {
   const todos = getTodosLocalStorage();
 
